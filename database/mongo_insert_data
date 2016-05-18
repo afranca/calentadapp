@@ -1,0 +1,5 @@
+use contactlist_db;
+
+db.contactlist_db.insert({name:'Yngwie',email:'yngwie@gmail.com', number:'(444) 444 - 4444'});
+
+db.contactlist.insert([{name:'Yngwie',email:'yngwie@gmail.com', number:'(444) 444 - 4444'},{name:'Joe',email:'joe@gmail.com', number:'555 555 - 555'} ,{name:'Tucker', email:'tucker@gmail.com', number:'(777) 777 - 77777'}]);
