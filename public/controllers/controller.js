@@ -3,9 +3,9 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     console.log("Hello World from controller");
 
 	var refresh = function() {
-	  $http.get('/contactlist').success(function(response) {
+	  $http.get('/caliente').success(function(response) {
 	    console.log("I got the data I requested");
-	    $scope.contactlist = response;
+	    $scope.calientelist = response;
 	    $scope.contact = "";
 	  });
 	};
@@ -16,7 +16,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.addContact = function() {
 	  	console.log("Sending POST request");
 	  	console.log($scope.contact);
-	  	$http.post('/contactlist', $scope.contact).success(function(response) {
+	  	$http.post('/caliente', $scope.contact).success(function(response) {
 	  		console.log("POST was successful");
 	    	console.log(response);
 	    	refresh();
@@ -26,7 +26,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.edit = function(id) {
 		console.log("Sending GET request");
 	    console.log(id);
-	  	$http.get('/contactlist/' + id).success(function(response) {
+	  	$http.get('/caliente/' + id).success(function(response) {
 	    	$scope.contact = response;
 	  	});
 	};
@@ -34,7 +34,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.remove = function(id) {
 	    console.log("Sending DELETE request");
 	  	console.log(id);
-	  	$http.delete('/contactlist/'+id).success(function(response) {
+	  	$http.delete('/caliente/'+id).success(function(response) {
 	  		console.log("DELETE was successful");
 	    	refresh();
 	  	});	  
@@ -45,7 +45,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.update = function() {
 	    console.log("Sending PUT request");
 	  	console.log($scope.contact);
-	  	$http.put('/contactlist/'+ $scope.contact._id, $scope.contact).success(function(response) {
+	  	$http.put('/caliente/'+ $scope.contact._id, $scope.contact).success(function(response) {
 	  		console.log("PUT was successful");
 	    	console.log(response);
 	    	refresh();

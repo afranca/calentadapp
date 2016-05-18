@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var mongojs = require('mongojs');
-var db = mongojs('contactlist', ['contactlist']);
+var db = mongojs('calentada_db', ['caliente']);
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + "/public"));
@@ -17,48 +17,48 @@ app.use('/contactlist',function(req, res){
 
 });
 */
-app.get('/contactlist', function (req, res) {
+app.get('/caliente', function (req, res) {
   console.log('Server received a GET request');
 
-  db.contactlist.find(function (err, docs) {
+  db.caliente.find(function (err, docs) {
     console.log(docs);
     res.json(docs);
   });
 })
 
-app.post('/contactlist', function (req, res) {
+app.post('/caliente', function (req, res) {
 	console.log("Server received a POST request ");	
   	console.log(req.body);
-  	db.contactlist.insert(req.body, function(err, doc) {
+  	db.caliente.insert(req.body, function(err, doc) {
     	res.json(doc);
   	}); 
 });
 
-app.get('/contactlist/:id', function (req, res) {
+app.get('/caliente/:id', function (req, res) {
 	var id = req.params.id;
 	console.log("Server received a GET request ");	
   	console.log(id);
-  	db.contactlist.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+  	db.caliente.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
     	res.json(doc);
   	});; 
 });
 
-app.delete('/contactlist/:id', function (req, res) {
+app.delete('/caliente/:id', function (req, res) {
 	var id = req.params.id;
 	console.log("Server received a DELETE request ");	
   	console.log(id);
-  	db.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+  	db.caliente.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
     	res.json(doc);
   	});; 
 });
 
-app.put('/contactlist/:id', function (req, res) {
+app.put('/caliente/:id', function (req, res) {
 	console.log("Server received a PUT request ");	
     var id = req.params.id;
   	console.log(req.body.name);
-  	db.contactlist.findAndModify({
+  	db.caliente.findAndModify({
   		query: {_id: mongojs.ObjectId(id)},
-  		update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
+  		update: {$set: {name: req.body.name, payment: req.body.payment, balance: req.body.balance}},
     	new: true}, function (err, doc) {
       		res.json(doc);
     	}
