@@ -6,17 +6,17 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	  $http.get('/caliente').success(function(response) {
 	    console.log("I got the data I requested");
 	    $scope.calientelist = response;
-	    $scope.contact = "";
+	    $scope.caliente = "";
 	  });
 	};
 	
 	refresh();
 
 
-	$scope.addContact = function() {
+	$scope.addCaliente = function() {
 	  	console.log("Sending POST request");
-	  	console.log($scope.contact);
-	  	$http.post('/caliente', $scope.contact).success(function(response) {
+	  	console.log($scope.caliente);
+	  	$http.post('/caliente', $scope.caliente).success(function(response) {
 	  		console.log("POST was successful");
 	    	console.log(response);
 	    	refresh();
@@ -27,7 +27,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 		console.log("Sending GET request");
 	    console.log(id);
 	  	$http.get('/caliente/' + id).success(function(response) {
-	    	$scope.contact = response;
+	    	$scope.caliente = response;
 	  	});
 	};
  
@@ -44,8 +44,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 
 	$scope.update = function() {
 	    console.log("Sending PUT request");
-	  	console.log($scope.contact);
-	  	$http.put('/caliente/'+ $scope.contact._id, $scope.contact).success(function(response) {
+	  	console.log($scope.caliente);
+	  	$http.put('/caliente/'+ $scope.caliente._id, $scope.caliente).success(function(response) {
 	  		console.log("PUT was successful");
 	    	console.log(response);
 	    	refresh();

@@ -23,20 +23,20 @@
 		      <tbody>
 		      
 		        <tr>
-		          <td><input class="form-control" ng-model="contact.name"></td>
-		          <td><input class="form-control" ng-model="contact.payment"></td>
-		          <td><input class="form-control" ng-model="contact.balance"></td>
-		          <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+		          <td><input class="form-control" ng-model="caliente.name"></td>
+		          <td><input class="form-control" ng-model="caliente.payment"></td>
+		          <td><input class="form-control" ng-model="caliente.balance"></td>
+		          <td><button class="btn btn-primary" ng-click="addCaliente()">Add Caliente</button></td>
 		          <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
 		        </tr>
 		       
-		        <tr ng-repeat="contact in calientelist">
-		          <td>{{contact.name}}</td>
-		          <td>{{contact.payment}}</td>
-		          <td>{{contact.balance}}</td>
+		        <tr ng-repeat="caliente in calientelist">
+		          <td>{{caliente.name}}</td>
+		          <td>{{caliente.payment}}</td>
+		          <td>{{caliente.balance}}</td>
 		          
-		          <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
-		          <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+		          <td><button class="btn btn-danger" ng-click="remove(caliente._id)">Remove</button></td>
+		          <td><button class="btn btn-warning" ng-click="edit(caliente._id)">Edit</button></td>
 		        
 		        </tr>
 		      </tbody>
