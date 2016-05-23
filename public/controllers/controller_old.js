@@ -1,12 +1,12 @@
 
-var restUrl = "http://localhost:8080/cal-jws/api/v1";
+var restUrl = "localhost:8080/rest/v1";
 
 var myApp = angular.module('myApp', []);
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     console.log("Hello World from controller");
 
 	var refresh = function() {
-	  $http.get(restUrl+'/caliente').success(function(response) {
+	  $http.get('/caliente').success(function(response) {
 	    console.log("I got the data I requested");
 	    $scope.calientelist = response;
 	    $scope.caliente = "";
@@ -19,7 +19,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.addCaliente = function() {
 	  	console.log("Sending POST request");
 	  	console.log($scope.caliente);
-	  	$http.post(restUrl+'/caliente', $scope.caliente).success(function(response) {
+	  	$http.post('/caliente', $scope.caliente).success(function(response) {
 	  		console.log("POST was successful");
 	    	console.log(response);
 	    	refresh();
@@ -29,7 +29,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.edit = function(id) {
 		console.log("Sending GET request");
 	    console.log(id);
-	  	$http.get(restUrl+'/caliente/' + id).success(function(response) {
+	  	$http.get('/caliente/' + id).success(function(response) {
 	    	$scope.caliente = response;
 	  	});
 	};
@@ -37,7 +37,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.remove = function(id) {
 	    console.log("Sending DELETE request");
 	  	console.log(id);
-	  	$http.delete(restUrl+'/caliente/'+id).success(function(response) {
+	  	$http.delete('/caliente/'+id).success(function(response) {
 	  		console.log("DELETE was successful");
 	    	refresh();
 	  	});	  
@@ -48,7 +48,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.update = function() {
 	    console.log("Sending PUT request");
 	  	console.log($scope.caliente);
-	  	$http.put(restUrl+'/caliente/'+ $scope.caliente._id, $scope.caliente).success(function(response) {
+	  	$http.put('/caliente/'+ $scope.caliente._id, $scope.caliente).success(function(response) {
 	  		console.log("PUT was successful");
 	    	console.log(response);
 	    	refresh();
