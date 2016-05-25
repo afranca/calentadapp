@@ -26,10 +26,10 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	  	});
 	};
 
-	$scope.edit = function(id) {
+	$scope.edit = function(id) {		
 		console.log("Sending GET request");
-	    console.log(id);
-	  	$http.get(restUrl+'/caliente/' + id).success(function(response) {
+		var restCall = restUrl+'/caliente/'+id;	    
+	  	$http.get(restCall).success(function(response) {	  		
 	    	$scope.caliente = response;
 	  	});
 	};
