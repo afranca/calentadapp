@@ -1,5 +1,5 @@
 
-var restUrl = "http://localhost:8080/cal-jws/api/v1";
+var restUrl = "http://localhost:8080/cal-jws/api/v2"; 
 
 var myApp = angular.module('myApp', []);
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
