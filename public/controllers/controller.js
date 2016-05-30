@@ -53,8 +53,13 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	    	console.log(response);
 	    	refresh();
 	  	});	  
-
 	};
+
+	$scope.deselect = function() {
+	    console.log("Clear fields");  	
+	    console.log($scope.caliente);
+	    $scope.caliente= "";
+	};	
 
 
 }]);﻿
